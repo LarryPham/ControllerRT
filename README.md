@@ -108,7 +108,7 @@ Now we can navigate from a controller to another controller using the following 
 _navigationService.NavigateTo((ISomeOtherController soc) => soc.Home, ...params...);
 ```
 
-At this point you have everything you need to navigate from a controller to another controller, except for an implementation of IResolver<>.  To help do the final wiring, I've included two other projects: one that uses MetroIoc (a port of MicroIoc) and one that uses Autofac (beta).  Choose whichever takes your fancy.
+At this point you have everything you need to navigate from a controller to another controller, except for an implementation of IResolver<>.  To help do the final wiring, I've included two other projects: one that uses [MetroIoc][4] (a port of MicroIoc) and one that uses [Autofac][5] (beta).  Choose whichever takes your fancy.
 
 ### Step 5 - Implement a bootstrapper.
 
@@ -169,3 +169,5 @@ And we're done!
   [1]: http://nuget.org/packages/ControllerRT
   [2]: http://nuget.org/packages/ControllerRT.MetroIoc
   [3]: http://nuget.org/packages/ControllerRT.Autofac
+  [4]: http://metroioc.codeplex.com/
+  [5]: http://code.google.com/p/autofac/

@@ -46,7 +46,7 @@ public class SomeController : ViewController<ISomeViewModel>, ISomeController
 
     public void Home()
     {
-        ViewModel.Title = "Hellow, World!";
+        ViewModel.Title = "Hello, World!";
     }
 }
 ```

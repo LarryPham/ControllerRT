@@ -1,5 +1,7 @@
 # ControllerRT
 
+NuGet: [ControllerRT][1], [ControllerRT MetroIoc][2], [ControllerRT Autofac][3]
+
 ### What is it?
 
 This project is an MVVM + Controller framework for WinRT.  The goal is to make the page navigation completely unit testable.  What it also improves over traditional MVVM is the separation of properties involved in binding (remain in the view model) from the command logic (moved to the view controller).
@@ -163,3 +165,7 @@ sealed partial class App : Application
 ```
 
 And we're done!
+
+  [1]: http://nuget.org/packages/ControllerRT
+  [2]: http://nuget.org/packages/ControllerRT.MetroIoc
+  [3]: http://nuget.org/packages/ControllerRT.Autofac

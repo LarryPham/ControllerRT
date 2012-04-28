@@ -72,7 +72,7 @@ public sealed partial class SomePage : Page
 
 ### Step 4 - Implement IViewResolver.
 
-This class will take in the type "ISomeViewModel" allocated the the controller and should then determine the type of the view which should be navigated to (i.e. "SomePage").
+This class will take in the type "ISomeViewModel" specified on the view controller and should then determine the type of the view which should be navigated to (i.e. "SomePage").
 
 For example:
 

@@ -103,7 +103,7 @@ public class ViewResolver : IViewResolver
 Now we can navigate from a controller to another controller using the following call:
 
 ```csharp
-_navigationService.NavigateTo((ISomeOtherController soc) => soc.Home, ...params on Home method...);
+_navigationService.NavigateTo((ISomeOtherController soc) => soc.Home, ...params...);
 ```
 
 At this point you have everything you need to navigate from a controller to another controller, except for an implementation of IResolver<>.  To help do the final wiring, I've included two other projects: one that uses MetroIoc (a port of MicroIoc) and one that uses Autofac (beta).  Choose whichever takes your fancy.

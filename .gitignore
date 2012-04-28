@@ -1,0 +1,12 @@
+*/bin
+*/Bin
+*\bin
+*\Bin
+*\obj
+*/obj
+*.suo
+*.user
+*.cachefile
+*.vs10x
+_ReSharper.*
+TestResults

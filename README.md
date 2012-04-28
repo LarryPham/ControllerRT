@@ -119,7 +119,8 @@ public class MyMetroIocBootstrapper : MetroIocBootstrapper
     {
         Container
             .Register<IViewResolver>(typeof(ViewResolver))
-            .Register<ISomeViewModel>(typeof(SomeViewModel));
+            .Register<ISomeViewModel>(typeof(SomeViewModel))
+            .Register<ISomeController>(typeof(SomeController));
     }
 }
 

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/jasonmoore2k/ControllerRT/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/jasonmoore2k/ControllerRT</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <summary>$description$</summary>
+    <releaseNotes>
+            4.5.0 - Initial release.
+    </releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>Controller MVVM MVVMC MVVM-C Navigation WinRT</tags>
+    <dependencies>
+      <dependency id="ControllerRT" version="$version$" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="MetroIoc.dll" target="lib\.NETCore45" />
+  </files>
+</package>

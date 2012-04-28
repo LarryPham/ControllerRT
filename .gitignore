@@ -8,5 +8,5 @@
 *.user
 *.cachefile
 *.vs10x
+*.nupkg
 _ReSharper.*
-TestResults

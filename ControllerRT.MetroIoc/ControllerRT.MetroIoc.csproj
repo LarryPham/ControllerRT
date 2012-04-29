@@ -119,7 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MetroIoc">
-      <HintPath>..\..\packages\MetroIoc\MetroIoc.dll</HintPath>
+      <HintPath>.\MetroIoc.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' ">

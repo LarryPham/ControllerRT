@@ -67,6 +67,7 @@ public sealed partial class SomePage : Page
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
+        base.OnNavigatedTo(e);
         DataContext = (ISomeViewModel)e.Parameter;
     }
 }

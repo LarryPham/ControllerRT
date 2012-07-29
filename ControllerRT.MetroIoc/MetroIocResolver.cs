@@ -1,4 +1,5 @@
-﻿using MetroIoc;
+﻿using System;
+using MetroIoc;
 
 namespace ControllerRT.MetroIoc
 {
@@ -14,6 +15,11 @@ namespace ControllerRT.MetroIoc
         public T Resolve<T>()
         {
             return _container.Resolve<T>();
+        }
+
+        public object Resolve(Type type)
+        {
+            return _container.Resolve(type);
         }
     }
 }

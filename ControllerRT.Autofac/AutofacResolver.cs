@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 
 namespace ControllerRT.Autofac
 {
@@ -14,6 +15,11 @@ namespace ControllerRT.Autofac
         public T Resolve<T>()
         {
             return _container.Resolve<T>();
+        }
+
+        public object Resolve(Type type)
+        {
+            return _container.Resolve(type);
         }
     }
 }

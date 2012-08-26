@@ -11,10 +11,11 @@
     <description>$description$</description>
     <summary>$description$</summary>
     <releaseNotes>
+            4.5.1 - Allow resolving at runtime.
             4.5.0 - Initial release.
     </releaseNotes>
     <copyright>Copyright 2012</copyright>
-    <tags>Controller MVVM MVVMC MVVM-C Navigation WinRT</tags>
+    <tags>Controller MVVM MVVMC MVVM-C Navigation WinRT Autofac</tags>
     <dependencies>
       <dependency id="ControllerRT" version="$version$" />
     </dependencies>

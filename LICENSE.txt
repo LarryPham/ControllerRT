@@ -5,3 +5,6 @@ http://metroioc.codeplex.com/
 
 Autofac is released under the MIT Licence
 http://code.google.com/p/autofac/
+
+Unity is released under the Microsoft Public License (Ms-PL)
+http://unity.codeplex.com/

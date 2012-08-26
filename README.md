@@ -1,6 +1,6 @@
 # ControllerRT
 
-NuGet: [ControllerRT][1], [ControllerRT MetroIoc][2], [ControllerRT Autofac][3]
+NuGet: [ControllerRT][1], [ControllerRT MetroIoc][2], [ControllerRT Autofac][3], [ControllerRT Unity][4]
 
 ### What is it?
 
@@ -109,7 +109,7 @@ Now we can navigate from a controller to another controller using the following 
 _navigationService.NavigateTo((ISomeOtherController soc) => soc.Home, ...params...);
 ```
 
-At this point you have everything you need to navigate from a controller to another controller, except for an implementation of IResolver<>.  To help do the final wiring, I've included two other projects: one that uses [MetroIoc][4] (a port of MicroIoc) and one that uses [Autofac][5] (beta).  Choose whichever takes your fancy.
+At this point you have everything you need to navigate from a controller to another controller, except for an implementation of IResolver<>.  To help do the final wiring, I've included two other projects: one that uses [MetroIoc][5] (a port of MicroIoc), one that uses [Autofac][6] (beta) and one that uses [Unity][7] (alpha).  Choose whichever takes your fancy.
 
 ### Step 5 - Implement a bootstrapper.
 
@@ -137,6 +137,17 @@ public class MyAutofacBootstrapper : AutofacBootstrapper
         containerBuilder.RegisterType<SomeController>().As<ISomeController>();
         containerBuilder.RegisterType<SomePage>();
         containerBuilder.Update(Container);
+    }
+}
+
+public class MyUnityBootstrapper : UnityBootstrapper
+{
+    protected override void ConfigureContainer()
+    {
+        Container
+            .Register<IViewResolver, ViewResolver>()
+            .Register<ISomeViewModel, SomeViewModel>()
+            .Register<ISomeController, SomeController>();
     }
 }
 ```
@@ -170,5 +181,7 @@ And we're done!
   [1]: http://nuget.org/packages/ControllerRT
   [2]: http://nuget.org/packages/ControllerRT.MetroIoc
   [3]: http://nuget.org/packages/ControllerRT.Autofac
-  [4]: http://metroioc.codeplex.com/
-  [5]: http://code.google.com/p/autofac/
+  [4]: http://nuget.org/packages/ControllerRT.Unity
+  [5]: http://metroioc.codeplex.com/
+  [6]: http://code.google.com/p/autofac/
+  [7]: http://unity.codeplex.com/

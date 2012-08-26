@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ControllerRT.MetroIoc")]
-[assembly: AssemblyDescription("MetroIoc integration for ControllerRT")]
+[assembly: AssemblyTitle("ControllerRT.Unity")]
+[assembly: AssemblyDescription("Unity integration for ControllerRT")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Jason Moore")]
-[assembly: AssemblyProduct("ControllerRT.MetroIoc")]
+[assembly: AssemblyProduct("ControllerRT.Unity")]
 [assembly: AssemblyCopyright("Copyright © Jason Moore 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

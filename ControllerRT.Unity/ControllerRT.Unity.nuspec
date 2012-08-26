@@ -11,14 +11,16 @@
     <description>$description$</description>
     <summary>$description$</summary>
     <releaseNotes>
-            4.5.1 - Added MetroIoc as a NuGet dependency.
+            4.5.1 - Added support for Unity.
             4.5.0 - Initial release.
     </releaseNotes>
     <copyright>Copyright 2012</copyright>
-    <tags>Controller MVVM MVVMC MVVM-C Navigation WinRT MetroIoc</tags>
+    <tags>Controller MVVM MVVMC MVVM-C Navigation WinRT Unity</tags>
     <dependencies>
       <dependency id="ControllerRT" version="$version$" />
-      <dependency id="metroioc" version="2.0.1" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="Microsoft.Practices.Unity.WinRT.dll" target="lib\.NETCore45" />
+  </files>
 </package>

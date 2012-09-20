@@ -59,8 +59,8 @@ namespace ControllerRT.MetroIoc
             Container
                 .RegisterInstance<Frame>(rootFrame)
                 .RegisterInstance<IContainer>(Container)
-                .Register<IResolver>(typeof (MetroIocResolver))
-                .Register<INavigationService>(typeof(NavigationService));
+                .Register<IResolver, MetroIocResolver>()
+                .Register<INavigationService, NavigationService>();
 
             ConfigureContainer();
 

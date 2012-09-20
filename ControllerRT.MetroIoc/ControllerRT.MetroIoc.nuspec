@@ -11,6 +11,7 @@
     <description>$description$</description>
     <summary>$description$</summary>
     <releaseNotes>
+            4.5.2 - Added CanGoBack, CanoForward and GoHome.
             4.5.1 - Added MetroIoc as a NuGet dependency.
             4.5.0 - Initial release.
     </releaseNotes>
@@ -18,7 +19,7 @@
     <tags>Controller MVVM MVVMC MVVM-C Navigation WinRT MetroIoc</tags>
     <dependencies>
       <dependency id="ControllerRT" version="$version$" />
-      <dependency id="metroioc" version="2.0.1" />
+      <dependency id="metroioc" version="2.0.3" />
     </dependencies>
   </metadata>
 </package>

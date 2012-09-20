@@ -19,7 +19,13 @@ namespace ControllerRT
 
         void GoBack();
 
+        bool CanGoBack();
+
         void GoForward();
+
+        bool CanGoForward();
+
+        void GoHome();
 
         bool Navigate<T>(object parameter);
 
@@ -47,9 +53,27 @@ namespace ControllerRT
             _frame.GoBack();
         }
 
+        public bool CanGoBack()
+        {
+            return _frame.CanGoBack;
+        }
+
         public void GoForward()
         {
             _frame.GoForward();
+        }
+
+        public bool CanGoForward()
+        {
+            return _frame.CanGoForward;
+        }
+
+        public void GoHome()
+        {
+            while (CanGoBack())
+            {
+                GoBack();
+            }
         }
 
         public void NavigateTo<TViewController>(Func<TViewController, Action> target)

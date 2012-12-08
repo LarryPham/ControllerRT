@@ -1,5 +1,5 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -12,9 +12,10 @@ namespace ControllerRT.Autofac
         protected AutofacBootstrapper()
         {
             var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterType<AutofacResolver>().As<IResolver>();
-            containerBuilder.RegisterType<NavigationService>().As<INavigationService>();
-            Container = containerBuilder.Build();
+            Container = containerBuilder
+                .RegisterSingleton<IResolver, AutofacResolver>()
+                .RegisterSingleton<INavigationService, NavigationService>()
+                .Build();
         }
 
         public void Run<TViewController>(Func<TViewController, Action> target)
@@ -67,6 +68,15 @@ namespace ControllerRT.Autofac
             ConfigureContainer();
 
             return rootFrame;
+        }
+    }
+
+    public static class ContainerExtensions
+    {
+        public static ContainerBuilder RegisterSingleton<TFrom, TTo>(this ContainerBuilder containerBuilder, string key = null) where TTo : TFrom
+        {
+            containerBuilder.RegisterType<TTo>().As<TFrom>().SingleInstance();
+            return containerBuilder;
         }
     }
 }

@@ -11,6 +11,8 @@
     <description>$description$</description>
     <summary>$description$</summary>
     <releaseNotes>
+            4.5.3 - Added some extensions
+            4.5.2 - Added CanGoBack, CanoForward and GoHome.
             4.5.1 - Allow resolving at runtime.
             4.5.0 - Initial release.
     </releaseNotes>

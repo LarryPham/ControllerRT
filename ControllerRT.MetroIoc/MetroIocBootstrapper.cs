@@ -1,5 +1,5 @@
-﻿using System;
-using MetroIoc;
+﻿using MetroIoc;
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -59,12 +59,20 @@ namespace ControllerRT.MetroIoc
             Container
                 .RegisterInstance<Frame>(rootFrame)
                 .RegisterInstance<IContainer>(Container)
-                .Register<IResolver, MetroIocResolver>()
-                .Register<INavigationService, NavigationService>();
+                .RegisterSingleton<IResolver, MetroIocResolver>()
+                .RegisterSingleton<INavigationService, NavigationService>();
 
             ConfigureContainer();
 
             return rootFrame;
+        }
+    }
+
+    public static class ContainerExtensions
+    {
+        public static IContainer RegisterSingleton<TFrom, TTo>(this IContainer container, string key = null) where TTo : TFrom
+        {
+            return container.Register<TFrom, TTo>(key, new Singleton());
         }
     }
 }

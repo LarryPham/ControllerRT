@@ -59,12 +59,20 @@ namespace ControllerRT.Unity
             Container
                 .RegisterInstance<Frame>(rootFrame)
                 .RegisterInstance<IUnityContainer>(Container)
-                .RegisterType<IResolver, UnityIocResolver>()
-                .RegisterType<INavigationService, NavigationService>();
+                .RegisterSingleton<IResolver, UnityIocResolver>()
+                .RegisterSingleton<INavigationService, NavigationService>();
 
             ConfigureContainer();
 
             return rootFrame;
+        }
+    }
+
+    public static class ContainerExtensions
+    {
+        public static IUnityContainer RegisterSingleton<TFrom, TTo>(this IUnityContainer container, string key = null) where TTo : TFrom
+        {
+            return container.RegisterType<TFrom, TTo>(key, new ContainerControlledLifetimeManager());
         }
     }
 }

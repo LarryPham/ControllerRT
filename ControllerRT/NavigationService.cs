@@ -5,16 +5,16 @@ namespace ControllerRT
 {
     public interface INavigationService
     {
-        void NavigateTo<TViewController>(Func<TViewController, Action> target)
+        TViewController NavigateTo<TViewController>(Func<TViewController, Action> target)
             where TViewController : IViewController;
 
-        void NavigateTo<TViewController, T1>(Func<TViewController, Action<T1>> target, T1 p1)
+        TViewController NavigateTo<TViewController, T1>(Func<TViewController, Action<T1>> target, T1 p1)
             where TViewController : IViewController;
 
-        void NavigateTo<TViewController, T1, T2>(Func<TViewController, Action<T1, T2>> target, T1 p1, T2 p2)
+        TViewController NavigateTo<TViewController, T1, T2>(Func<TViewController, Action<T1, T2>> target, T1 p1, T2 p2)
             where TViewController : IViewController;
 
-        void NavigateTo<TViewController, T1, T2, T3>(Func<TViewController, Action<T1, T2, T3>> target, T1 p1, T2 p2, T3 p3)
+        TViewController NavigateTo<TViewController, T1, T2, T3>(Func<TViewController, Action<T1, T2, T3>> target, T1 p1, T2 p2, T3 p3)
             where TViewController : IViewController;
 
         void GoBack();
@@ -76,28 +76,36 @@ namespace ControllerRT
             }
         }
 
-        public void NavigateTo<TViewController>(Func<TViewController, Action> target)
+        public TViewController NavigateTo<TViewController>(Func<TViewController, Action> target)
             where TViewController : IViewController
         {
-            target(NavigateToBase<TViewController>())();
+            var controller = NavigateToBase<TViewController>();
+            target(controller)();
+            return controller;
         }
 
-        public void NavigateTo<TViewController, T1>(Func<TViewController, Action<T1>> target, T1 p1)
+        public TViewController NavigateTo<TViewController, T1>(Func<TViewController, Action<T1>> target, T1 p1)
             where TViewController : IViewController
         {
-            target(NavigateToBase<TViewController>())(p1);
+            var controller = NavigateToBase<TViewController>();
+            target(controller)(p1);
+            return controller;
         }
 
-        public void NavigateTo<TViewController, T1, T2>(Func<TViewController, Action<T1, T2>> target, T1 p1, T2 p2)
+        public TViewController NavigateTo<TViewController, T1, T2>(Func<TViewController, Action<T1, T2>> target, T1 p1, T2 p2)
             where TViewController : IViewController
         {
-            target(NavigateToBase<TViewController>())(p1, p2);
+            var controller = NavigateToBase<TViewController>();
+            target(controller)(p1, p2);
+            return controller;
         }
 
-        public void NavigateTo<TViewController, T1, T2, T3>(Func<TViewController, Action<T1, T2, T3>> target, T1 p1, T2 p2, T3 p3)
+        public TViewController NavigateTo<TViewController, T1, T2, T3>(Func<TViewController, Action<T1, T2, T3>> target, T1 p1, T2 p2, T3 p3)
             where TViewController : IViewController
         {
-            target(NavigateToBase<TViewController>())(p1, p2, p3);
+            var controller = NavigateToBase<TViewController>();
+            target(controller)(p1, p2, p3);
+            return controller;
         }
 
         private TViewController NavigateToBase<TViewController>()

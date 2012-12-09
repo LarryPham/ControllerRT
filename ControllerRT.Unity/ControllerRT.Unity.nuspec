@@ -11,6 +11,7 @@
     <description>$description$</description>
     <summary>$description$</summary>
     <releaseNotes>
+            4.5.5 - Navigation methods return the target controller.
             4.5.3 - Added some extensions
             4.5.2 - Added CanGoBack, CanoForward and GoHome.
             4.5.1 - Added support for Unity.

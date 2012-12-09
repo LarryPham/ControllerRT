@@ -14,40 +14,44 @@ namespace ControllerRT.Unity
             Container = new UnityContainer();
         }
 
-        public void Run<TViewController>(Func<TViewController, Action> target)
+        public TViewController Run<TViewController>(Func<TViewController, Action> target)
             where TViewController : IViewController
         {
             Frame rootFrame = CreateRootFrame();
-            Container.Resolve<INavigationService>().NavigateTo(target);
+            var controller = Container.Resolve<INavigationService>().NavigateTo(target);
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
+            return controller;
         }
 
-        public void Run<TViewController, T1>(Func<TViewController, Action<T1>> target, T1 p1)
+        public TViewController Run<TViewController, T1>(Func<TViewController, Action<T1>> target, T1 p1)
             where TViewController : IViewController
         {
             Frame rootFrame = CreateRootFrame();
-            Container.Resolve<INavigationService>().NavigateTo(target, p1);
+            var controller = Container.Resolve<INavigationService>().NavigateTo(target, p1);
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
+            return controller;
         }
 
-        public void Run<TViewController, T1, T2>(Func<TViewController, Action<T1, T2>> target, T1 p1, T2 p2)
+        public TViewController Run<TViewController, T1, T2>(Func<TViewController, Action<T1, T2>> target, T1 p1, T2 p2)
             where TViewController : IViewController
         {
             Frame rootFrame = CreateRootFrame();
-            Container.Resolve<INavigationService>().NavigateTo(target, p1, p2);
+            var controller = Container.Resolve<INavigationService>().NavigateTo(target, p1, p2);
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
+            return controller;
         }
 
-        public void Run<TViewController, T1, T2, T3>(Func<TViewController, Action<T1, T2, T3>> target, T1 p1, T2 p2, T3 p3)
+        public TViewController Run<TViewController, T1, T2, T3>(Func<TViewController, Action<T1, T2, T3>> target, T1 p1, T2 p2, T3 p3)
             where TViewController : IViewController
         {
             Frame rootFrame = CreateRootFrame();
-            Container.Resolve<INavigationService>().NavigateTo(target, p1, p2, p3);
+            var controller = Container.Resolve<INavigationService>().NavigateTo(target, p1, p2, p3);
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
+            return controller;
         }
 
         protected abstract void ConfigureContainer();

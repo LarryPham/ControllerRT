@@ -1,22 +1,27 @@
 ﻿using System;
-using Windows.UI.Xaml.Controls;
+using System.Collections.Generic;
+using System.Windows.Navigation;
+using Microsoft.Phone.Controls;
 
 namespace ControllerRT
 {
     public class NavigationService : INavigationService
     {
-        private readonly Frame _frame;
+        private readonly PhoneApplicationFrame _frame;
         private readonly IResolver _resolver;
         private readonly IViewResolver _viewResolver;
 
         public NavigationService(
-            Frame frame,
+            PhoneApplicationFrame frame,
             IResolver resolver,
             IViewResolver viewResolver)
         {
             _frame = frame;
             _resolver = resolver;
             _viewResolver = viewResolver;
+
+            _frame.Navigated += OnNavigated;
+            _frame.Navigating += OnNavigating;
         }
 
         public void GoBack()
@@ -84,23 +89,56 @@ namespace ControllerRT
         {
             var viewController = _resolver.Resolve<TViewController>();
 
-            Type viewType = _viewResolver.Resolve(viewController.ViewModelType);
+            string viewPath = _viewResolver.Resolve(viewController.ViewModelType);
 
-            Navigate(viewType, viewController.ViewModelObject);
+            Navigate(viewPath, viewController.ViewModelObject);
 
             return viewController;
         }
 
-        public bool Navigate<T>(object parameter = null)
+        public bool Navigate(string viewPath, object parameter = null)
         {
-            var type = typeof(T);
+            var key = Guid.NewGuid().ToString();
+            _viewModels[key] = parameter;
 
-            return Navigate(type, parameter);
+            string url = string.Format("{0}?vm={1}", viewPath, key);
+            Uri uri;
+            if (!Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out uri))
+            {
+                return false;
+            }
+
+            _frame.Dispatcher.BeginInvoke(() => _frame.Navigate(uri));
+            return true;
         }
 
-        public bool Navigate(Type source, object parameter = null)
+        private static Dictionary<string, object> _viewModels = new Dictionary<string, object>();
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
         {
-            return _frame.Navigate(source, parameter);
+            var page = e.Content as PhoneApplicationPage;
+            if (page == null)
+                return;
+
+            string vmUid;
+            if (page.NavigationContext.QueryString.TryGetValue("vm", out vmUid))
+            {
+                object vm;
+                if (_viewModels.TryGetValue(vmUid, out vm))
+                {
+                    page.DataContext = vm;
+                }
+            }
+        }
+
+        private void OnNavigating(object sender, NavigatingCancelEventArgs e)
+        {
+            // Cancels the default page navigation on app start.
+            if (e.Uri.OriginalString.EndsWith("MainPage.xaml") &&
+                e.IsCancelable)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerRT", "ControllerRT\ControllerRT.csproj", "{7A148182-6BF9-4F7D-B7AA-B1B1654A034B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerRT.MetroIoc", "ControllerRT.MetroIoc\ControllerRT.MetroIoc.csproj", "{3CC32350-22D8-45E2-9FAA-FC5AEEFA49EC}"
@@ -8,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerRT.Autofac", "ControllerRT.Autofac\ControllerRT.Autofac.csproj", "{6012B629-6DC6-4058-9D09-2C345A37DD00}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerRT.Unity", "ControllerRT.Unity\ControllerRT.Unity.csproj", "{55754FDF-40AB-46B9-BD2F-D8BEE2C3A16F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerRT.Phone", "ControllerRT.Phone\ControllerRT.Phone.csproj", "{9B181646-8602-42B1-BA9E-EEC382B69F10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerRT.Phone.MicroIoc", "ControllerRT.Phone.MicroIoc\ControllerRT.Phone.MicroIoc.csproj", "{CBD366D1-D133-4AC0-B4DE-164B39594067}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +91,34 @@ Global
 		{55754FDF-40AB-46B9-BD2F-D8BEE2C3A16F}.Release|x64.Build.0 = Release|x64
 		{55754FDF-40AB-46B9-BD2F-D8BEE2C3A16F}.Release|x86.ActiveCfg = Release|x86
 		{55754FDF-40AB-46B9-BD2F-D8BEE2C3A16F}.Release|x86.Build.0 = Release|x86
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Debug|ARM.ActiveCfg = Debug|ARM
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Debug|ARM.Build.0 = Debug|ARM
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Debug|x86.ActiveCfg = Debug|x86
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Debug|x86.Build.0 = Debug|x86
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Release|ARM.ActiveCfg = Release|ARM
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Release|ARM.Build.0 = Release|ARM
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Release|x64.ActiveCfg = Release|Any CPU
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Release|x86.ActiveCfg = Release|x86
+		{9B181646-8602-42B1-BA9E-EEC382B69F10}.Release|x86.Build.0 = Release|x86
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Debug|ARM.ActiveCfg = Debug|ARM
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Debug|ARM.Build.0 = Debug|ARM
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Debug|x86.ActiveCfg = Debug|x86
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Debug|x86.Build.0 = Debug|x86
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Release|ARM.ActiveCfg = Release|ARM
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Release|ARM.Build.0 = Release|ARM
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Release|x64.ActiveCfg = Release|Any CPU
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Release|x86.ActiveCfg = Release|x86
+		{CBD366D1-D133-4AC0-B4DE-164B39594067}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

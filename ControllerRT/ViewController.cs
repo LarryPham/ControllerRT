@@ -40,6 +40,4 @@ namespace ControllerRT
             ViewModel = viewModel;
         }
     }
-
-    
 }

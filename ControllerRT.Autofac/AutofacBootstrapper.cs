@@ -15,6 +15,7 @@ namespace ControllerRT.Autofac
             Container = containerBuilder
                 .RegisterSingleton<IResolver, AutofacResolver>()
                 .RegisterSingleton<INavigationService, NavigationService>()
+                .RegisterSingleton<IFlyoutService, FlyoutService>()
                 .Build();
         }
 

@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Reflection;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace ControllerRT
 {
@@ -8,6 +11,7 @@ namespace ControllerRT
         private readonly Frame _frame;
         private readonly IResolver _resolver;
         private readonly IViewResolver _viewResolver;
+        private SettingsFlyout _flyout;
 
         public NavigationService(
             Frame frame,
@@ -17,11 +21,18 @@ namespace ControllerRT
             _frame = frame;
             _resolver = resolver;
             _viewResolver = viewResolver;
+
+            _frame.Navigated += OnNavigated;
         }
 
         public void GoBack()
         {
-            _frame.GoBack();
+            if (_flyout != null)
+            {
+                ClearFlyout();
+            }
+            else
+                _frame.GoBack();
         }
 
         public bool CanGoBack()
@@ -86,7 +97,19 @@ namespace ControllerRT
 
             Type viewType = _viewResolver.Resolve(viewController.ViewModelType);
 
-            Navigate(viewType, viewController.ViewModelObject);
+            var viewTypeInfo = viewType.GetTypeInfo();
+            if (viewTypeInfo.IsSubclassOf(typeof(Page)))
+            {
+                Navigate(viewType, viewController.ViewModelObject);
+            }
+            else if (viewTypeInfo.IsSubclassOf(typeof(UserControl)))
+            {
+                Flyout(viewType, viewController.ViewModelObject);
+            }
+            else
+            {
+                throw new NotSupportedException("Can only navigate to a Page or UserControl");
+            }
 
             return viewController;
         }
@@ -101,6 +124,56 @@ namespace ControllerRT
         public bool Navigate(Type source, object parameter = null)
         {
             return _frame.Navigate(source, parameter);
+        }
+
+        public void Flyout(Type source, object parameter = null)
+        {
+            var view = (Control)Activator.CreateInstance(source);
+            view.DataContext = parameter;
+            _flyout = new SettingsFlyout
+            {
+                Title = view.Name,
+                Content = view,
+                Width = view.Width,
+                Foreground = view.Foreground,
+                Background = view.Background,
+                HeaderBackground = view.BorderBrush,
+                BorderBrush = view.BorderBrush,
+                RequestedTheme = _frame.RequestedTheme,
+                VerticalAlignment = VerticalAlignment.Stretch,
+                Padding = new Thickness(0),
+            };
+
+            ScrollViewer.SetVerticalScrollBarVisibility(_flyout, ScrollBarVisibility.Disabled);
+            ScrollViewer.SetVerticalScrollMode(_flyout, ScrollMode.Disabled);
+
+            _flyout.BackClick += OnFlyoutBack;
+            _flyout.ShowIndependent();
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            var element = e.Content as FrameworkElement;
+            if (element == null)
+                return;
+
+            element.DataContext = e.Parameter;
+        }
+
+        private void OnFlyoutBack(object sender, BackClickEventArgs e)
+        {
+            ClearFlyout();
+        }
+
+        private void ClearFlyout()
+        {
+            var flyout = _flyout;
+            if (flyout != null)
+            {
+                flyout.BackClick -= OnFlyoutBack;
+                flyout.Hide();
+                _flyout = null;
+            }
         }
     }
 }

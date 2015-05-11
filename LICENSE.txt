@@ -1,8 +1,5 @@
 This project is released under the Microsoft Public Licence: http://www.opensource.org/licenses/ms-pl.html
 
-MetroIoc is released under the Microsoft Public License (Ms-PL)
-http://metroioc.codeplex.com/
-
 Autofac is released under the MIT Licence
 http://code.google.com/p/autofac/
 

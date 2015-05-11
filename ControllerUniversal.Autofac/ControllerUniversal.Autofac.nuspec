@@ -12,6 +12,10 @@
     <summary>$description$</summary>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2012</copyright>
-    <tags>Controller MVVM MVVMC MVVM-C Navigation WinRT</tags>
+    <tags>Controller MVVM MVVMC MVVM-C Navigation Universal Autofac</tags>
+    <dependencies>
+      <dependency id="ControllerUniversal" version="$version$" />
+	  <dependency id="Autofac" version="3.5.2" />
+    </dependencies>
   </metadata>
 </package>

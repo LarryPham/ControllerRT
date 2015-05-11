@@ -11,7 +11,7 @@
     <description>$description$</description>
     <summary>$description$</summary>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright 2012</copyright>
-    <tags>Controller MVVM MVVMC MVVM-C Navigation WinRT</tags>
+    <copyright>Copyright 2015</copyright>
+    <tags>Controller MVVM MVVMC MVVM-C Navigation Portable</tags>
   </metadata>
 </package>

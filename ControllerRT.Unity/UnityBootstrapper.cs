@@ -64,8 +64,7 @@ namespace ControllerRT.Unity
                 .RegisterInstance<Frame>(rootFrame)
                 .RegisterInstance<IUnityContainer>(Container)
                 .RegisterSingleton<IResolver, UnityIocResolver>()
-                .RegisterSingleton<INavigationService, NavigationService>()
-                .RegisterSingleton<IFlyoutService, FlyoutService>();
+                .RegisterSingleton<INavigationService, NavigationService>();
 
             ConfigureContainer();
 

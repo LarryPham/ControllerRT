@@ -23,7 +23,4 @@
       <dependency id="ControllerRT" version="$version$" />
     </dependencies>
   </metadata>
-  <files>
-    <file src="Microsoft.Practices.Unity.WinRT.dll" target="lib\.NETCore45" />
-  </files>
 </package>

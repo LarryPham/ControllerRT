@@ -10,3 +10,4 @@
 *.vs10x
 *.nupkg
 _ReSharper.*
+packages/**/*
